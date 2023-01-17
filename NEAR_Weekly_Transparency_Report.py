@@ -540,8 +540,8 @@ fig6.update_layout(
 )
 
 # Set y-axes titles
-fig4.update_yaxes(title_text="Weekly active Near users", secondary_y=False)
-fig4.update_yaxes(title_text="Total active Near users", secondary_y=True)
+fig6.update_yaxes(title_text="Weekly active Near users", secondary_y=False)
+fig6.update_yaxes(title_text="Total active Near users", secondary_y=True)
 
 tab1, tab2, tab3 = st.tabs(["Hourly active users", "Daily active users", "Weekly active users"])
 
@@ -1775,6 +1775,16 @@ with tab2:
     
 with tab3:
     st.plotly_chart(fig6, theme="streamlit", use_container_width=True)
+
+st.subheader('Conclusions')
+st.markdown('Following the Near Foundation Weekly Transparency Report and using Flipside Crypto and MetricsDAO data, I have been able to develop a tool that tracks Near activity in a more user-friendly and clean way.')
+st.markdown('The most interesting thing I have found is the way in which the activity takes place in NEAR. It seems that users tend to use the ecosystem more during specific hours. The peaks seems to be registered from 5:00PM to 8:00PM. The same pattern holds true for active users, transactions and gas used!')
+st.markdown('Furhtermore, the activity since to be increased during the last week in which users, transactions and gas used have been doubled!')
+st.write('')
+st.markdown('This app has been done by **_Adrià Parcerisas_**, a PhD Biomedical Engineer related to Machine Learning and Artificial intelligence technical projects for data analysis and research, as well as dive deep on-chain data analysis about cryptocurrency projects. You can find me on [Twitter](https://twitter.com/adriaparcerisas)')
+st.write('')
+st.markdown('The full sources used to develop this app can be found to the following link: [Github link](https://github.com/adriaparcerisas/Near-Weekly-Report)')
+st.markdown('_Powered by [Flipside Crypto](https://flipsidecrypto.xyz) and [MetricsDAO](https://metricsdao.notion.site)_')
 
 
 # In[ ]:
