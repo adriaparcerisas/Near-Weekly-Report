@@ -690,31 +690,32 @@ order by date ASC
     
     
 st.experimental_memo(ttl=21600)
-def compute(a):
-    data=sdk.query(a)
-    return data
+@st.cache
+def compute2(a):
+    results=sdk.query(a)
+    return results
 
-results = compute(sql)
+results = compute2(sql)
 df = pd.DataFrame(results.records)
 df.info()
 
-results2 = compute(sql2)
+results2 = compute2(sql2)
 df2 = pd.DataFrame(results2.records)
 df2.info()
 
-results3 = compute(sql3)
+results3 = compute2(sql3)
 df3 = pd.DataFrame(results3.records)
 df3.info()
 
-results4 = compute(sql4)
+results4 = compute2(sql4)
 df4 = pd.DataFrame(results4.records)
 df4.info()
 
-results5 = compute(sql5)
+results5 = compute2(sql5)
 df5 = pd.DataFrame(results5.records)
 df5.info()
 
-results6 = compute(sql6)
+results6 = compute2(sql6)
 df6 = pd.DataFrame(results6.records)
 df6.info()
 
@@ -1027,9 +1028,10 @@ select
     
     
 st.experimental_memo(ttl=21600)
+@st.cache
 def compute(a):
-    data=sdk.query(a)
-    return data
+    results=sdk.query(a)
+    return results
 
 results = compute(sql)
 df = pd.DataFrame(results.records)
@@ -1568,6 +1570,7 @@ group by 1,2 order by 1 asc,2 desc
     
     
 st.experimental_memo(ttl=21600)
+@st.cache
 def compute(a):
     data=sdk.query(a)
     return data
