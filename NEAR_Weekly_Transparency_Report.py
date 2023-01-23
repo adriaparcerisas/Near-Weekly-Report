@@ -297,9 +297,10 @@ ORDER BY date DESC
 
 
 st.experimental_memo(ttl=21600)
+@st.cache
 def compute(a):
-    data=sdk.query(a)
-    return data
+    results=sdk.query(a)
+    return results
 
 results = compute(sql)
 df = pd.DataFrame(results.records)
