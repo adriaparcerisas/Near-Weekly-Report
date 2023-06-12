@@ -1469,10 +1469,10 @@ with tab3:
 sql = f"""
 SELECT
 trunc(first_date,'hour') as date,
-count(distinct x.receiver_id ) as new_contracts,
+count(distinct receiver_id ) as new_contracts,
   sum(new_contracts) over (order by date) as cum_new_contracts
 from (select
-  receiver_id,
+  x.receiver_id,
   min(x.block_timestamp) as first_date
 from near.core.fact_actions_events x  
 join near.core.fact_receipts y on x.tx_hash=y.tx_hash
@@ -1485,10 +1485,10 @@ order by 1 asc
 sql2 = f"""
 SELECT
 trunc(first_date,'day') as date,
-count(distinct x.receiver_id ) as new_contracts,
+count(distinct receiver_id ) as new_contracts,
   sum(new_contracts) over (order by date) as cum_new_contracts
 from (select
-  receiver_id,
+  x.receiver_id,
   min(x.block_timestamp) as first_date
 from near.core.fact_actions_events x  
 join near.core.fact_receipts y on x.tx_hash=y.tx_hash
@@ -1501,10 +1501,10 @@ order by 1 asc
 sql3 = f"""
 SELECT
 trunc(first_date,'week') as date,
-count(distinct x.receiver_id ) as new_contracts,
+count(distinct receiver_id ) as new_contracts,
   sum(new_contracts) over (order by date) as cum_new_contracts
 from (select
-  receiver_id,
+  x.receiver_id,
   min(x.block_timestamp) as first_date
 from near.core.fact_actions_events x  
 join near.core.fact_receipts y on x.tx_hash=y.tx_hash
