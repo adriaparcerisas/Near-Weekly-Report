@@ -960,7 +960,7 @@ select
   sum(fees) over (order by date) as cum_fees,
   avg(TRANSACTION_FEE/1e24) as avg_tx_fee
   from  near.core.fact_transactions x
-  join near.core.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
+  join near.prices.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
   where x.block_timestamp > getdate() - interval '1 WEEK' and symbol='wNEAR'
   group by 1
 """
@@ -972,7 +972,7 @@ select
   sum(fees) over (order by date) as cum_fees,
   avg(TRANSACTION_FEE/1e24) as avg_tx_fee
   from  near.core.fact_transactions x
-  join near.core.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
+  join near.price.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
   where x.block_timestamp > getdate() - interval '1 MONTH' and symbol='wNEAR'
   group by 1
 """
@@ -984,7 +984,7 @@ select
   sum(fees) over (order by date) as cum_fees,
   avg(TRANSACTION_FEE/1e24) as avg_tx_fee
   from  near.core.fact_transactions x
-  join near.core.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
+  join near.price.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
   where x.block_timestamp > getdate() - interval '3 MONTHS' and symbol='wNEAR'
   group by 1
 """
@@ -996,7 +996,7 @@ select
   sum(fees) over (order by date) as cum_fees,
   avg(gas_used/1e18) as avg_tx_fee
   from  near.core.fact_transactions x
-  join near.core.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
+  join near.price.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
   where x.block_timestamp > getdate() - interval '1 WEEK' and symbol='wNEAR'
   group by 1
 """
@@ -1008,7 +1008,7 @@ select
   sum(fees) over (order by date) as cum_fees,
   avg(gas_used/1e18) as avg_tx_fee
   from  near.core.fact_transactions x
-  join near.core.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
+  join near.price.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
   where x.block_timestamp > getdate() - interval '1 MONTH' and symbol='wNEAR'
   group by 1
 """
@@ -1020,7 +1020,7 @@ select
   sum(fees) over (order by date) as cum_fees,
   avg(gas_used/1e18) as avg_tx_fee
   from  near.core.fact_transactions x
-  join near.core.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
+  join near.price.fact_prices y on trunc(x.block_timestamp,'hour')=trunc(y.timestamp,'hour')
   where x.block_timestamp > getdate() - interval '3 MONTHS' and symbol='wNEAR'
   group by 1
 """
